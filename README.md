@@ -7,9 +7,7 @@ http.proxyPort=3128
 https.proxyHost=proxy.univ-lemans.fr
 https.proxyPort=3128
 
-# ET dans pom.xml
-
-<configuration>
+# ET dans pom.xml ajouter CA <configuration>
 <jvmArguments>
 -Dhttp.proxyHost=proxy.univ-lemans.fr
 -Dhttp.proxyPort=3128
@@ -17,6 +15,8 @@ https.proxyPort=3128
 -Dhttps.proxyPort=3128
 </jvmArguments>
 </configuration>
+
+
 
 
 
