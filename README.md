@@ -3,11 +3,12 @@
 https://github.com/kawtarTL/springBootApp
 
 # Remarque
+```xml
 http.proxyHost=proxy.univ-lemans.fr
 http.proxyPort=3128
 https.proxyHost=proxy.univ-lemans.fr
 https.proxyPort=3128
-
+```
 # ET dans pom.xml ajouter CA 
 ```xml
 <configuration>
