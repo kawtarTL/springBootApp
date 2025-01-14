@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${pageTitle}">Coordonnées géographiques</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:replace="~{fragments/navbar}"></div>
+
+<main class="container mt-5">
+    <h1 class="text-center mb-4">Coordonnées géographiques</h1>
+
+    <!-- Coordonnées -->
+    <div class="card shadow-sm p-4 mb-4">
+        <div class="card-body">
+            <h3 class="card-title text-primary">
+                <i class="bi bi-geo-alt-fill me-2"></i> Adresse
+            </h3>
+            <p class="card-text lead" th:text="${address}"></p>
+        </div>
+    </div>
+
+    <!-- Informations supplémentaires -->
+    <div class="row">
+        <!-- Latitude et Longitude -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary">
+                        <i class="bi bi-compass me-2"></i> Coordonnées
+                    </h4>
+                    <p><strong>Latitude :</strong> <span class="text-info" th:text="${latitude}"></span></p>
+                    <p><strong>Longitude :</strong> <span class="text-info" th:text="${longitude}"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Météo -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary">
+                        <i class="bi bi-cloud-sun me-2"></i> Météo
+                    </h4>
+                    <div>
+                        <p><strong>Température Minimale :</strong> <span class="text-info" th:text="${temperatureMin}"></span></p>
+                        <p><strong>Température Maximale :</strong> <span class="text-info" th:text="${temperatureMax}"></span></p>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Vent -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary">
+                        <i class="bi bi-wind me-2"></i> Vent
+                    </h4>
+                    <p><strong>Vitesse :</strong> <span class="text-info" th:text="${windSpeed}"></span></p>
+                    <p><strong>Rafales :</strong> <span class="text-info" th:text="${gustSpeed}"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Précipitations -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary">
+                        <i class="bi bi-cloud-drizzle me-2"></i> Précipitations
+                    </h4>
+                    <p><strong>Pluie (1h) :</strong> <span class="text-info" th:text="${rainfall}"></span></p>
+                    <p><strong>Probabilité :</strong> <span class="text-info" th:text="${rainProbability}"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton de rafraîchissement (optionnel) -->
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" type="button">
+            <i class="bi bi-arrow-repeat me-2"></i> Rafraîchir
+        </button>
+    </div>
+
+    <!-- Message d'erreur -->
+    <div th:if="${error}" class="alert alert-danger mt-4">
+        <p th:text="${error}"></p>
+    </div>
+</main>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

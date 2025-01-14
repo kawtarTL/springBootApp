@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${pageTitle}">Les Adresses</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Barre de navigation incluse ici -->
+<div th:replace="~{fragments/navbar}"></div>
+
+<main class="container mt-4">
+    <h1 class="mb-4 text-center">Les Différentes Adresses</h1>
+
+    <!-- Liste des adresses -->
+    <ul class="list-group mb-4">
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+            th:each="address : ${allAddresses}">
+            <span>
+                <strong th:text="${address.content}"></strong><br>
+                <small th:text="'Auteur: ' + ${address.author}"></small>
+            </span>
+        </li>
+    </ul>
+    <h3 class="mb-3">Entrez une adresse pour obtenir la météo :</h3>
+    <form action="/meteo" method="post">
+        <div class="mb-3">
+            <label for="address" class="form-label">Adresse :</label>
+            <input name="address" id="address" class="form-control" required>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Obtenir la météo</button>
+        </div>
+    </form>
+
+</main>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
