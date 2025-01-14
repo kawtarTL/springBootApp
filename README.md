@@ -2,7 +2,7 @@
 
 https://github.com/kawtarTL/springBootApp
 
-# Remarque
+# Remarque Dans Application.properties
 ```xml
 http.proxyHost=proxy.univ-lemans.fr
 http.proxyPort=3128
